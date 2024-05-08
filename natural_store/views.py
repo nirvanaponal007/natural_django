@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
+from .forms import FormularioRegistro
 
 def index (request):
     return render (request, 'index.html' , {
@@ -46,6 +47,7 @@ def  logout_vista (request):
 
 
 def registro (request):
+    form = FormularioRegistro()
     return render(request, 'usuarios/registro.html', {
-        
+        'form': form
     })
