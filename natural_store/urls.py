@@ -21,5 +21,8 @@ from . import views
 
 urlpatterns = [
     path('',  views.index, name= 'index'),
+    path('usuarios/login',  views.login_vista, name= 'login'),
+    path('usuarios/logout',  views.logout_vista, name= 'logout'),
+    path('usuarios/registro',  views.registro, name= 'registro'),
     path('admin/', admin.site.urls),
 ]
