@@ -7,10 +7,11 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from .forms import FormularioRegistro
+from django.contrib.auth.models import User
 
 def index (request):
     return render (request, 'index.html' , {
-        'mensaje': 'Hola Tio desde el mensaje',
+        'mensaje': 'Estas en Index!',
         'titulo_empresa': 'Natural Star B',
         'productos':[
             {'titulo':'Shampoo Coco','precio':35000,'inventario': True},
@@ -44,10 +45,21 @@ def  logout_vista (request):
     return redirect('login')
 
 
-
-
 def registro (request):
-    form = FormularioRegistro()
+    form = FormularioRegistro(request.POST or None)
+
+    if request.method == 'POST' and form.is_valid():
+      
+
+        user = form.save()
+
+        if user:
+            messages.success(request, 'Usuario creado correctamente')
+            return redirect('index')
+
+
+
+
     return render(request, 'usuarios/registro.html', {
         'form': form
     })
