@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
 
-    <a class="navbar-brand">Bright Natural Star  Logi-is</a>
+    <a href="{% url 'index' %}" class="navbar-brand">  Bright Natural Star  </a>
     <button type="button" name="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navb">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,18 +9,25 @@
         
         <ul class="nav navbar-nav ml-auto">
             <li class="navbar-item">
-                <a href="#" class="nav-link">
+                <a href="{% url 'inventario' %}" class="nav-link">
+                    <span class="fa-solid fa-warehouse"></span>
+                    Inventario</a>
+            </li>   
+            <li class="navbar-item">
+                <a href="{% url 'login' %}" class="nav-link">
                     <span class="fa-solid fa-arrow-right-to-bracket"></span>
                     Login</a>
             </li>
             <li class="navbar-item">
-                <a href="#" class="nav-link">
-                    <span class="fa-solid fa-arrow-right-to-bracket"></span>
+                <a href="{% url 'registro' %}" class="nav-link">
+                    <span class="fa-regular fa-address-card"></span>
                     Registro</a>
+
+
             </li>
             <li class="navbar-item">
-                <a href="#" class="nav-link">
-                    <span class="fa-solid fa-arrow-right-to-bracket"></span>
+                <a href="{% url 'logout' %}" class="nav-link">
+                    <span class="fa-solid fa-outdent""></span>
                     Logout</a>
             </li>
         </ul>

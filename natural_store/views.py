@@ -8,16 +8,20 @@ from django.contrib.auth import login
 from django.contrib.auth import logout
 from .forms import FormularioRegistro
 from django.contrib.auth.models import User
+#importamos producto
+from productos.models import Producto
 
 def index (request):
+
+
+    #crear variable
+    productos = Producto.objects.all().order_by('-id')
+
+
     return render (request, 'index.html' , {
         'mensaje': 'Estas en Index!',
         'titulo_empresa': 'Natural Star B',
-        'productos':[
-            {'titulo':'Shampoo Coco','precio':35000,'inventario': True},
-            {'titulo':'Shampoo Manzana','precio':45000,'inventario': True},
-            {'titulo':'Shampoo Pera','precio':37000,'inventario': False},
-        ]
+        'Productos':productos
     })
 
 
@@ -38,12 +42,10 @@ def login_vista (request):
     return render (request, 'usuarios/login.html', {}
     )
 
-
 def  logout_vista (request):
     logout(request)
     messages.success(request, 'Sesión cerrada correctamente')
     return redirect('login')
-
 
 def registro (request):
     form = FormularioRegistro(request.POST or None)
@@ -62,4 +64,10 @@ def registro (request):
 
     return render(request, 'usuarios/registro.html', {
         'form': form
+    })
+
+def inventario (request):
+
+     return render (request, 'inventario/inventario.html' , {
+        
     })
