@@ -1,39 +1,46 @@
-<nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+{% url 'inventario' as inventario %}
+{% url 'login' as login %}
+{% url 'registro' as registro %}
+{% url 'logout' as logout %}
 
-    <a href="{% url 'index' %}" class="navbar-brand">  Bright Natural Star  </a>
-    <button type="button" name="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navb">
+
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a href="{% url 'index' %}" class="navbar-brand">  Bright Natural Star {{ request.path }}   </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div id="navb" class="navbar-collapse collapse hide">
-        
-        <ul class="nav navbar-nav ml-auto">
-            <li class="navbar-item">
-                <a href="{% url 'inventario' %}" class="nav-link">
-                    <span class="fa-solid fa-warehouse"></span>
-                    Inventario</a>
-            </li>   
-            <li class="navbar-item">
-                <a href="{% url 'login' %}" class="nav-link">
-                    <span class="fa-solid fa-arrow-right-to-bracket"></span>
-                    Login</a>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menú</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == inventario %}active {% endif %}" aria-current="page" href="{{ inventario }}">Inventario</a>
             </li>
-            <li class="navbar-item">
-                <a href="{% url 'registro' %}" class="nav-link">
-                    <span class="fa-regular fa-address-card"></span>
-                    Registro</a>
-
-
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == login %}active {% endif %}" href="{{ login }}">Login</a>
             </li>
-            <li class="navbar-item">
-                <a href="{% url 'logout' %}" class="nav-link">
-                    <span class="fa-solid fa-outdent""></span>
-                    Logout</a>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == registro %}active {% endif %}" href="{{ registro }}">Registro</a>
             </li>
-        </ul>
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == logout %}active {% endif %}" href="{{ logout }}">Logout</a>
+            </li>
+          </ul>
+          <!--<form class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>-->
+        </div>
+      </div>
     </div>
+  </nav>
 
-</nav>
+
 
 
 <!--
