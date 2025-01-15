@@ -26,6 +26,9 @@ def index (request):
 
 
 def login_vista (request):
+    if request.user.is_authenticated:
+        return redirect('index') 
+
     if request.method == 'POST':
         nombre_usuario = request.POST.get('nombre_usuario')
         contraseña = request.POST.get('contraseña')
@@ -48,19 +51,16 @@ def  logout_vista (request):
     return redirect('login')
 
 def registro (request):
+    if request.user.is_authenticated:
+        return redirect('index') 
     form = FormularioRegistro(request.POST or None)
-
     if request.method == 'POST' and form.is_valid():
       
-
         user = form.save()
 
         if user:
             messages.success(request, 'Usuario creado correctamente')
             return redirect('index')
-
-
-
 
     return render(request, 'usuarios/registro.html', {
         'form': form
