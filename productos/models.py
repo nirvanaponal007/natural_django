@@ -6,6 +6,7 @@ class Producto(models.Model):
     Descripcion = models.TextField()
     Precio_Venta = models.DecimalField(max_digits=8, decimal_places=2, default=0.0)
     slug = models.SlugField(null=False, blank=False, unique=True)
+    imagen = models.ImageField(upload_to='productos/', null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):

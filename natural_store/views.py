@@ -13,7 +13,6 @@ from productos.models import Producto
 
 def index (request):
 
-
     #crear variable
     productos = Producto.objects.all().order_by('-id')
 

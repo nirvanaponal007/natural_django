@@ -5,7 +5,7 @@ from .models import Producto
 
 
 class ProductoAdmin(admin.ModelAdmin):
-    fields = ('Nombre_Corto','Descripcion','Precio_Venta')
+    fields = ('Nombre_Corto','Descripcion','Precio_Venta', 'imagen')
     list_display = ('__str__','slug','created_at')
 
 

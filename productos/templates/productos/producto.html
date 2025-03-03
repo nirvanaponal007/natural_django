@@ -4,16 +4,29 @@
 
 <a> Detalle del producto </a>
 
+
+
+
+<div>
+
+</div>
 <div class="col">
     <div class="h1"> {{ producto.Nombre_Corto }}</div>
     <div class="h5 font-weight-bold">
         Precio: <span class="text-danger"> $ {{ producto.Precio_Venta }} </span>
-
     </div>
-    <p>
-        {{ producto.Descripcion }}
-    </p>
+    <div class="">
+        <p>
+            {{ producto.Descripcion }}
+        </p>
+    </div>
+</div>
 
+
+<div class="col-3">
+    
+    <img src="{{ producto.imagen.url }}" alt="imagen del producto" width="200" height="400">
+  
 </div>
 
 {% endblock%}

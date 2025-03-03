@@ -11,6 +11,12 @@
             {{ Producto.Descripcion }}
             {{ Producto.Precio_Venta }}
             {{ Producto.created_at }}
+            {{ producto.imagen.url }}
+            <div class="col-3">
+    
+                <img src="" alt="imagen del producto" width="200" height="400">
+              
+            </div>
 
         </li>
         {% endfor %}
