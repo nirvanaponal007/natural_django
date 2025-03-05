@@ -1,0 +1,19 @@
+{% extends 'Base.html' %}
+
+{% block contenido %}
+
+<div class="col">
+    {% include 'productos/snippets/buscador.html' with query=query %}
+    <hr>
+    <p>Resultados para:{{query}} ({{contar}})</p>
+    <h4 class="tect-center">prueba</h4>
+
+    
+    {% for object in Productos %}
+    <div class="col-3 mt-5">
+        {% include 'productos/snippets/producto_maquetado.html' with Producto=object%}
+    </div>
+    {% endfor %}
+
+
+{% endblock%}

@@ -2,28 +2,25 @@
 
 {% block contenido %}
 
-<div class="col">
-    <h1>{{mensaje}}</h1>
-    <ul class="list-group">
-        {% for Producto in Productos %}
-        <li class="list-group-item">
-            {{ Producto.Nombre_Corto }}
-            {{ Producto.Descripcion }}
-            {{ Producto.Precio_Venta }}
-            {{ Producto.created_at }}
-            {{ producto.imagen.url }}
-            <div class="col-3">
-    
-                <img src="" alt="imagen del producto" width="200" height="400">
-              
-            </div>
 
-        </li>
-        {% endfor %}
-    </ul>
+
+
+<div class="col">
+    <h4 class="tect-center">{{mensaje}}</h4>
+    {% include 'productos/snippets/buscador.html' with Producto=object%}
+        <div class="row">
+            {% for object in Productos %}
+            <div class="col-3 mt-5">
+                {% include 'productos/snippets/producto_maquetado.html' with Producto=object%}
+            </div>
+            {% endfor %}
+        </div>
 </div>
 
+
 {% endblock%}
+
+
 
 
 <!--

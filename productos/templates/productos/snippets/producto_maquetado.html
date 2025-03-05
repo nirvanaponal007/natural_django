@@ -1,0 +1,17 @@
+<div class="card h-100">
+
+    {% if Producto.imagen %}
+        <img src="{{ Producto.imagen.url }}" alt="imagen del producto" width="100" height="300">
+    {% endif  %}
+
+        <div class="card-body">
+            <h5 class="card-title">{{ Producto.Nombre_Corto }}</h5>
+            <p class="card-text">{{ Producto.Descripcion }}</p>
+            <p class="card-text">{{ Producto.Precio_Venta }}</p>
+            <p class="card-text">{{ Producto.created_at }}/p>
+            <p class="card-text">{{ producto.imagen.url }}</p>
+            <a href="#" class="btn btn-primary">Detalle</a>
+
+        </div>
+
+</div>
