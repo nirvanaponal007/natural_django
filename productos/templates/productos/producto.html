@@ -20,13 +20,16 @@
             {{ producto.Descripcion }}
         </p>
     </div>
-</div>
-
-
-<div class="col-3">
+    <div class="col-3">
     
-    <img src="{{ producto.imagen.url }}" alt="imagen del producto" width="200" height="400">
-  
+        <img src="{{ producto.imagen.url }}" alt="imagen del producto" width="200" height="400">
+        <a href="{% url 'index' %}" class="btn btn-primary">Regresar</a>
+    </div>
 </div>
+
+
+
+
+
 
 {% endblock%}
