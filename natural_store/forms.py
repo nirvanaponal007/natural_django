@@ -1,5 +1,6 @@
 from django import forms
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
+from clientes.models import Cliente
 
 
 class FormularioRegistro(forms.Form):
@@ -15,14 +16,14 @@ class FormularioRegistro(forms.Form):
     def clean_usuario(self):
         usuario = self.cleaned_data.get('usuario')
         #realizar consulta a nuestra base de datos
-        if User.objects.filter( username = usuario).exists():
+        if Cliente.objects.filter( username = usuario).exists():
             raise forms.ValidationError('El usuario se encuentra en uso')
         return  usuario
     
     def clean_correo(self):
         correo = self.cleaned_data.get('correo')
         #realizar consulta a nuestra base de datos
-        if User.objects.filter( email = correo).exists():
+        if Cliente.objects.filter( email = correo).exists():
             raise forms.ValidationError('El email se encuentra en uso')
         return  correo
     
@@ -36,7 +37,7 @@ class FormularioRegistro(forms.Form):
 
     def save(self):
 
-        return User.objects.create_user(
+        return Cliente.objects.create_user(
             self.cleaned_data.get('usuario'),
             self.cleaned_data.get('correo'),
             self.cleaned_data.get('contraseña'),

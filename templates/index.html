@@ -7,18 +7,18 @@
 
 <div class="col">
     <h4 class="tect-center">{{mensaje}}</h4>
-    {% include 'productos/snippets/buscador.html' with Producto=object%}
+    
+    {% include 'productos/snippets/buscador.html' with Producto=object %}
         <div class="row">
             {% for object in Productos %}
             <div class="col-3 mt-5">
-                {% include 'productos/snippets/producto_maquetado.html' with Producto=object%}
+                {% include 'productos/snippets/producto_maquetado.html' with Producto=object %}
             </div>
             {% endfor %}
         </div>
 </div>
 
-
-{% endblock%}
+{% endblock %}
 
 
 

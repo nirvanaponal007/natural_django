@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'productos',
+    'clientes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'natural_store.urls'
+
+
+AUTH_USER_MODEL = 'clientes.Cliente'
 
 TEMPLATES = [
     {
