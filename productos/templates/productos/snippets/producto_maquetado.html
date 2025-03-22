@@ -8,7 +8,7 @@
             <h5 class="card-title">{{ Producto.Nombre_Corto }}</h5>
             <p class="card-text">{{ Producto.Descripcion }}</p>
             <p class="card-text">{{ Producto.Precio_Venta }}</p>
-            <p class="card-text">{{ Producto.created_at }}/p>
+            <p class="card-text">{{ Producto.created_at }}/<p>
             <p class="card-text">{{ producto.imagen.url }}</p>
             <a href="{% url  'producto_detalle' Producto.slug %}" class="btn btn-primary">Detalle</a>
 

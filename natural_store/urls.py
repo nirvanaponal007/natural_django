@@ -33,7 +33,8 @@ urlpatterns = [
     path('usuarios/registro',  views.registro, name= 'registro'),
     path('inventario/inventario',  views.inventario, name= 'inventario'),
     path('admin/', admin.site.urls),
-    path('productos/', include('productos.urls'))
+    path('productos/', include('productos.urls')),
+    path('carrito/', include('carritos.urls'))
 ]
 
 #importante para ver las imagenes en el template

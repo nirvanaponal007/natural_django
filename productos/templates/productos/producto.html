@@ -25,6 +25,9 @@
         <img src="{{ producto.imagen.url }}" alt="imagen del producto" width="200" height="400">
         <a href="{% url 'index' %}" class="btn btn-primary">Regresar</a>
     </div>
+    <div class="">
+        {% include 'carritos/snippets/add.html' %}
+    </div>
 </div>
 
 

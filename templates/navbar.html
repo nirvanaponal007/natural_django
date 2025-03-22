@@ -2,21 +2,38 @@
 {% url 'login' as login %}
 {% url 'registro' as registro %}
 {% url 'logout' as logout %}
+{% url 'carritos:carrito' as carrito %}
 
 
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
+
+
+
       <a href="{% url 'index' %}" class="navbar-brand">  Bright Natural Star {{ request.path }}   </a>
+
+      <ul class="navbar-nav">
+        <li class="nav-item {% if request.path == carrito %} active {% endif %} ">
+          <a class="nav-link"    href="{{ carrito }}">Mi Carrito<span class="fas fa-shopping-cart"></span></a>
+        </li>
+      </ul>
+
+
+
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+
+
       <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menú</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
+
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             {% if user.is_authenticated  %}
             <li class="nav-item">
